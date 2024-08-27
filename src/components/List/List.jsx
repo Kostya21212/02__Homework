@@ -15,20 +15,20 @@ export default function List() {
     const intervalId = setInterval(() => {
       setList((list) => {
         
-        const inactiveItems = list.filter((item) => !item.active);
+        const inactItems = list.filter((item) => !item.active);
 
-        if (inactiveItems.length === 0) {
+        if (inactItems.length === 0) {
           clearInterval(intervalId); 
           return list;
         }
 
         
-        const randomIndex = Math.floor(Math.random() * inactiveItems.length);
-        const randomItem = inactiveItems[randomIndex];
+        const randomIndex = Math.floor(Math.random() * inactItems.length);
+        const randomItem = inactItems[randomIndex];
         console.log(`Random item : ${randomItem.type} ${randomItem.icon}`);
         const updatedList = list.map((item) =>
         
-          item === inactiveItems[randomIndex] ? { ...item, active: true } : item
+          item === inactItems[randomIndex] ? { ...item, active: true } : item
           
         );
         
